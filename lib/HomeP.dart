@@ -27,13 +27,14 @@ class Homenote extends StatelessWidget {
                 });
 
                 return  Scaffold(
-                  appBar: AppBar(
-                    backgroundColor: Colors.lightGreen,
-                    title: Text("My Notes",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
-                    centerTitle: true ,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        bottom: Radius.circular(30),
+                  appBar: PreferredSize(
+                    preferredSize: Size.fromHeight(100.0),
+                    child: ClipPath(
+                      clipper: MyClipper(),
+                      child: AppBar(
+                        backgroundColor: Colors.lightGreenAccent,
+                        title: Text("My Notes",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
+                        centerTitle: true ,
                       ),
                     ),
                   ),
@@ -81,5 +82,23 @@ class Homenote extends StatelessWidget {
               );
               }
             }));
+  }
+}
+class MyClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0, size.height - 30);
+    path.quadraticBezierTo(
+        size.width / 4, size.height, size.width / 2, size.height);
+    path.quadraticBezierTo(
+        size.width * 3 / 4, size.height, size.width, size.height - 30);
+    path.lineTo(size.width, 0);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }

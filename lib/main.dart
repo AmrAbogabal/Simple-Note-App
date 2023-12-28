@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:noteapp/shared.dart';
 
 import 'HomeP.dart';
+import 'Splash.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,10 @@ class Myapp extends StatelessWidget{
     // TODO: implement build
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homenote(),
+      home: SplashScreen(),
+      theme: ThemeData(
+        fontFamily: "Regular",
+      ),
     );
   }
 }

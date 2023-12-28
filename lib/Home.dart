@@ -21,23 +21,32 @@ class Homepage extends StatelessWidget {
       decoration: BoxDecoration(
         color: NoteC.get(context).C[index%5],
         borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3), // تحديد اتجاه الظل
+          ),
+        ],
       ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Row(children: [
-          Container(
-            width: MediaQuery.of(context).size.width*0.7,
-            child: Text(notes[(notes.length-1)-index],
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,
-                decoration: NoteC.get(context).check[(notes.length-1)-index]=="1"?TextDecoration.lineThrough : null,
-                decorationColor : Colors.red ,
-                decorationStyle : TextDecorationStyle.wavy,
-                decorationThickness:  5 ,
-              ),),
+          Expanded(
+            child: Container(
+              //width: MediaQuery.of(context).size.width*0.7,
+              child: Text(notes[(notes.length-1)-index],
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,
+                  decoration: NoteC.get(context).check[(notes.length-1)-index]=="1"?TextDecoration.lineThrough : null,
+                  decorationColor : Colors.red ,
+                  decorationStyle : TextDecorationStyle.wavy,
+                  decorationThickness:  5 ,
+                ),),
+            ),
           ),
-          Spacer(),
           MaterialButton(onPressed: (){
             num x = (NoteC.get(context).Notes.length-1)-index ;
             NoteC.get(context).Notes.removeAt(x.toInt());
