@@ -26,7 +26,7 @@ class Homenote extends StatelessWidget {
                   print("successCheck");
                 });
 
-                return  Scaffold(
+                return  MediaQuery.of(context).size.height<100?Text(""):Scaffold(
                   appBar: PreferredSize(
                     preferredSize: Size.fromHeight(100.0),
                     child: ClipPath(
@@ -48,8 +48,8 @@ class Homenote extends StatelessWidget {
                       print(index);
                     },
                     items: const [
-                      BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.blue,),backgroundColor: Colors.white,label: "Home"),
-                      BottomNavigationBarItem(icon: Icon(Icons.add,color: Colors.blue,),backgroundColor: Colors.white,label: "Add Note"),
+                      BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.green,),backgroundColor: Colors.white,label: "Home"),
+                      BottomNavigationBarItem(icon: Icon(Icons.add,color: Colors.green,),backgroundColor: Colors.white,label: "Add Note"),
 
                     ],
                   ),
@@ -57,7 +57,7 @@ class Homenote extends StatelessWidget {
                 );
               }
               else {
-                return  Scaffold(
+                return   MediaQuery.of(context).size.height<100?Text(""):Scaffold(
                 appBar: AppBar(
                   backgroundColor: Colors.lightGreenAccent,
                   title: const Text("Note App ",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),

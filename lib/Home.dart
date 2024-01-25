@@ -37,8 +37,8 @@ class Homepage extends StatelessWidget {
             child: Container(
               //width: MediaQuery.of(context).size.width*0.7,
               child: Text(notes[(notes.length-1)-index],
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+                //maxLines: 1,
+                //overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,
                   decoration: NoteC.get(context).check[(notes.length-1)-index]=="1"?TextDecoration.lineThrough : null,
                   decorationColor : Colors.red ,
